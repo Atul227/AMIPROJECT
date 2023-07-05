@@ -1,0 +1,51 @@
+{
+    "builders":[
+        {
+
+        "type": "amazon-ebs",
+        "access_key":"",
+        "secret_key":"",
+        "region": "eu-west-2",
+        "ami_name": "Atul_AMI_project-{{timestamp}}",
+        "source_ami": "ami-0ef262972e641bb3e",
+        "instance_type": "t2.micro",
+        "ssh_username":"ec2-user",
+        "ssh_agent_auth": "false",
+         "associate_public_ip_address": "true",
+         "ssh_interface": "public_ip",
+         "temporary_key_pair_type": "ed25519"
+
+        }
+        
+
+
+
+
+
+    ],
+    
+    "provisioners": [
+        {
+          
+            "type": "file",
+            "source": "installer.sh",
+            "destination": "/tmp/provisioner.sh"
+        },
+        
+        
+          {"type": "shell",
+            "inline": [
+                "chmod a+x /tmp/provisioner.sh",
+                "ls -la /tmp",
+                "pwd",
+                "/tmp/provisioner.sh"]
+
+
+           }
+        
+    ]
+      
+
+
+    
+}
