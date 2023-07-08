@@ -3,8 +3,6 @@
         {
 
         "type": "amazon-ebs",
-        "access_key":"",
-        "secret_key":"",
         "region": "eu-west-2",
         "ami_name": "Atul_AMI_project-{{timestamp}}",
         "source_ami": "ami-0ef262972e641bb3e",
